@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://voodootikigod.github.com/sitemap.xml 
