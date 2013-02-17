@@ -1,0 +1,12 @@
+---
+layout: post
+title: ! 'CouchDB snippet: Find the biggest object'
+published: true
+date: 2010-07-31
+categories: []
+posterous_url: http://www.voodootikigod.com/couchdb-snippet-find-the-biggest-object
+posterous_slug: couchdb-snippet-find-the-biggest-object
+---
+<p>I use <a href="http://couchdb.apache.org/">Apache CouchDB</a> in the implementation of <a href="http://www.ourparents.com">OurParents</a> for holding a lot of our big data. One of the things I run into is a concern for the size of any specific object within the dataset. When you have hundreds of thousands of documents each of which with a lot of weight, finding the "big" objects can be a problem. Luckily, and full thanks to <a href="http://jan.prima.de/">Jan Lehnardt</a>, there is this little gem that leverages the underlying SpiderMonkey system within CouchDB to determine the size of a document based on the number of characters in it. Hope it helps you as much as it helps me:</p>
+<p><strong>Map:</strong></p>
+<p><script src="https://gist.github.com/502609.js"></script></p>

@@ -1,0 +1,115 @@
+---
+layout: post
+title: winton's lilypad at master - GitHub
+published: true
+date: 2009-12-03
+categories: []
+posterous_url: http://www.voodootikigod.com/wintons-lilypad-at-master-github
+posterous_slug: wintons-lilypad-at-master-github-0
+---
+<div class="posterous_bookmarklet_entry">
+      <blockquote><div><h3>Lilypad</h3>
+
+<p>Hoptoad notifier for Rack-based frameworks.</p>
+
+<h3>Install</h3>
+
+<div class="CodeRay">
+  <div class="code"><pre>sudo gem install lilypad --source http://gemcutter.org</pre></div>
+</div>
+
+
+
+<h3>Rails</h3>
+
+<p><strong>config/environment.rb</strong></p>
+
+<div class="CodeRay">
+  <div class="code"><pre>require 'rack/lilypad'
+
+Rails::Initializer.run do |config|
+  config.middleware.insert_after(ActionController::Failsafe, Rack::Lilypad, 'hoptoad_api_key_goes_here')
+end</pre></div>
+</div>
+
+
+
+<p><strong>app/controllers/application_controller.rb</strong>:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>class ApplicationController &lt; ActionController::Base
+
+  def rescue_action(exception)
+    super
+    ENV['RACK_ENV'] = ENV['RAILS_ENV']
+    request.env['rack.lilypad.component'] = params[:controller]
+    request.env['rack.lilypad.action'] = params[:action]
+    raise exception
+  end
+end</pre></div>
+</div>
+
+
+
+<h3>Sinatra</h3>
+
+<div class="CodeRay">
+  <div class="code"><pre>require 'rack/lilypad'
+
+class MyApp &lt; Sinatra::Application
+  enable :raise_errors # not necessary for Sinatra::Base
+  use Rack::Lilypad, 'hoptoad_api_key_goes_here'
+end</pre></div>
+</div>
+
+
+
+<h3>Filters</h3>
+
+<p>Don't send certain environment variables to Hoptoad.</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>use Rack::Lilypad, 'hoptoad_api_key_goes_here' do |hoptoad|
+  hoptoad.filters &lt;&lt; %w(AWS_ACCESS_KEY AWS_SECRET_ACCESS_KEY AWS_ACCOUNT SSH_AUTH_SOCK)
+end</pre></div>
+</div>
+
+
+
+<h3>Direct Access</h3>
+
+<p>Send exceptions to Hoptoad from a rescue block.</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>begin
+  raise 'Test'
+rescue Exception =&gt; e
+  Rack::Lilypad.notify(e)
+end</pre></div>
+</div>
+
+
+
+<h3>Log</h3>
+
+<p>See what you are sending and receiving from Hoptoad.</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>use Rack::Lilypad, 'hoptoad_api_key_goes_here' do |hoptoad|
+  hoptoad.log = '/var/www/log/hoptoad.log'
+end</pre></div>
+</div>
+
+
+
+<h3>Compatibility</h3>
+
+<p>Tested with Ruby 1.8.6, 1.8.7, and 1.9.1.</p>
+
+<h3>Thanks</h3>
+
+<p>Lilypad wouldn't have happened without <a href="http://github.com/atmos/rack_hoptoad">rack_hoptoad</a>, <a href="http://github.com/toolmantim/toadhopper">toadhopper</a>, <a href="http://builder.rubyforge.org">Builder</a>, and <a href="http://nokogiri.org">Nokogiri</a>.</p>
+</div></blockquote>
+
+<div class="posterous_quote_citation">via <a href="http://github.com/winton/lilypad">github.com</a></div>
+    <p>Interesting little code component to move down to the Rack layer.</p></div>

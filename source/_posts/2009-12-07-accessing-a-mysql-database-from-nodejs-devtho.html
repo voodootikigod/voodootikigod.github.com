@@ -1,0 +1,35 @@
+---
+layout: post
+title: ! 'Accessing a MySQL database from Node.JS «  Devthought '
+published: true
+date: 2009-12-07
+categories: []
+posterous_url: http://www.voodootikigod.com/accessing-a-mysql-database-from-nodejs-devtho
+posterous_slug: accessing-a-mysql-database-from-nodejs-devtho
+---
+<div class="posterous_bookmarklet_entry">
+      <blockquote><div>
+        
+        
+    <p>I just pushed <a href="http://github.com/Guille/node.dbslayer.js">node.dbslayer.js</a> to GitHub, a very basic and easy-to-use interface to DBSlayer.</p>
+<p>What is <a href="http://code.nytimes.com/projects/dbslayer/wiki">DBSlayer</a>?</p>
+<blockquote><div>The DBacesslayer aka DBSlayer is a lightweight database abstraction layer suitable for high-load websites where you need the scalable advantages of connection pooling. Written in C for speed, DBSlayer talks to clients via JSON over HTTP, meaning it’s simple to monitor and can swiftly interoperate with any web framework you choose.</div>
+</blockquote>
+<p>Developed by the New York Times to distribute the load of their MySQL servers, DBSlayer allows us to perform queries in a non-blocking way. Running a SQL query is as simple as:</p>
+
+<div>
+<div><ul><li><a href="http://devthought.com/wp-content/plugins/wp-syntax/snippet.php?postid=1108&amp;hash=71d838e3a56a653ae060309eacf537b4">Download code</a></li><li><a href="#">Plain</a></li><li><a href="#">Print</a></li><li><a href="#">Toggle</a></li></ul></div><div><div class="CodeRay">
+  <div class="code"><pre>connection.query(&quot;SELECT * FROM TABLE&quot;).addCallback(function(result){
+        for (var i = 0, l = result.ROWS.length; i  l; i++){
+                var row = result.ROWS[i];
+                // do something with the data
+        }
+});</pre></div>
+</div>
+</div></div>
+
+<p>Have fun!</p>
+  </div></blockquote>
+
+<div class="posterous_quote_citation">via <a href="http://devthought.com/blog/2009/12/accessing-a-mysql-database-from-nodejs/">devthought.com</a></div>
+    <p>AWESOME!!!</p></div>

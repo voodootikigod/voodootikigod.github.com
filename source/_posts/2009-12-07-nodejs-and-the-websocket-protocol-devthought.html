@@ -1,0 +1,42 @@
+---
+layout: post
+title: ! 'Node.JS and the WebSocket protocol «  Devthought '
+published: true
+date: 2009-12-07
+categories: []
+posterous_url: http://www.voodootikigod.com/nodejs-and-the-websocket-protocol-devthought
+posterous_slug: nodejs-and-the-websocket-protocol-devthought
+---
+<div class="posterous_bookmarklet_entry">
+      <blockquote><div>
+        
+        
+    <p>After reading <a href="http://simonwillison.net/2009/Nov/23/node/">Simon Willison’s</a> post on Node.JS, I decided I’d give it a try myself. Today I released <a href="http://github.com/guille/node.websocket.js/">node.websocket.js</a></p>
+<p>After a couple of months I’ve been watching the progress on the <a href="http://tools.ietf.org/pdf/draft-hixie-thewebsocketprotocol-60.pdf">WebSocket protocol</a>, which gives JavaScript developers full-duplex communications channels in the browser. This is a very exciting alternative to the COMET techniques we’re used to seeing. </p>
+<p>Node.JS is a framework for networked, event-driven applications, where JavaScript has a natural fit. This particular implementation is built on top of the excellent <a href="http://code.google.com/p/v8/">V8 engine</a>.</p>
+<p>Running the server is as simple as:</p>
+
+<div><div><div class="CodeRay">
+  <div class="code"><pre>$ node runserver.js</pre></div>
+</div>
+</div></div>
+
+<p><span></span></p>
+<p>Logging (in the Redis storage, an excellent persistent key-value storage mechanism which will be subject of another post) will begin.<br />
+Writing a client is equally easy:</p>
+
+<div><div><div class="CodeRay">
+  <div class="code"><pre>var a = new WebSocket();
+a.onmessage = function(event){
+   console.log(event.data);
+};</pre></div>
+</div>
+</div></div>
+
+<p>As you might know or induce already, the wonder of WebSocket is only available to a few selected browsers. To my knowledge only nightly Webkit, Chromium, trunk Firefox (and possibly Opera) have a decent degree of support of WebSocket.</p>
+<p>The bigger goal of this project is to provide an API that allows fallback on techniques such as XHR streaming, long-polling, forever iframe (+htmlfile), for cross-browser support and rapid development. Writing the server side modules for node.websocket.js is really pretty easy thanks to the excellent <a href="http://nodejs.org/api.html#_modules">modules API</a> Node.JS provides. And a bunch of projects that allow you to plug in Node.JS to a variety of data sources<a href="http://wiki.github.com/ry/node"> are already available</a>.</p>
+<p>Alexander Teinum also has a <a href="http://github.com/alexanderte/websocket-server-node.js">very minimal</a> implementation meant for local use, with which he’s empowering tools of the impressive <a href="http://www.brevityos.org/">BrevityOS</a> project. Other implementations include <a href="http://blogs.webtide.com/gregw/entry/jetty_websocket_server">Jetty’s</a> and <a href="http://kaazing.com">Kaazing</a>, both worth keeping an eye on.</p>
+  </div></blockquote>
+
+<div class="posterous_quote_citation">via <a href="http://devthought.com/blog/2009/12/nodejs-and-the-websocket-protocol/">devthought.com</a></div>
+    <p>WebSockets and Full Duplex Communication now available to node.js.</p></div>

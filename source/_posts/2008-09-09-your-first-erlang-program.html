@@ -1,0 +1,51 @@
+---
+layout: post
+title: Your First Erlang Program
+published: true
+date: 2008-09-09
+categories: []
+posterous_url: http://www.voodootikigod.com/your-first-erlang-program
+posterous_slug: your-first-erlang-program
+---
+You have <a href="http://erlang.org/download.html">Erlang</a> installed right?
+
+Good then lets get started!
+
+Open up your text editor of choice or an IDE if you have nothing else and create a new file called <strong>sample.erl</strong>, because I am really not all that creative. In the editor type (or copy and paste if you are lazy) the following code:
+
+<code>-module(sample).</code>
+
+<code>-export([factorial/1]).</code>
+
+<code>factorial(0) -&gt; 1;
+factorial(N) -&gt; N * factorial(N-1).</code>
+
+WATCH FOR THOSE PERIODS, they are only kind of important. Most Erlang code is based around an optimized pattern matching process, which will take a fair amount of time to get used to, its alright if you don't get it on the first go around. What this is doing is defining a method "factorial" with "1" parameter, which represented in Erlang notation as <strong>factorial/1</strong> within the module "sample". Now notice the two definitions of factorial/1: factorial(0) and factorial(N). This is where the pattern matching occurs so follow me here.
+
+The pattern factorial(0) will match and return 1 whenever factorial is called with a parameter of zero (0) and the pattern factorial(N) will whenever factorial is called with any non-zero parameter. factorial(N) will return N multiplied by the return value of factorial(N-1), which recurses back into the factorial function. Note if they were reverse, the pattern factorial(0) would be meaningless and never matched because the variable N would match both any non-zero and zero parameter. This is pretty crazy, so if you don't get it its ok, you can leave your question in the comments and I or other readers can help you out with this. Just look at the code, embrace the period, the semicolon, and those wacky arrows. Swoon.
+
+Now open a terminal/command window and change your directory to the directory that contains the sample.erl file you made (psst that's cd &lt;directorypath&gt;). Type "erl" in order to open an Erlang Read, Execute, Print, Loop or REPL shell. This is a limited environment that you can use to enter commands and interact with the Erlang VM. It is not full featured, but for now, it will suffice. When you hit enter the following should appear
+
+<code>Erlang (BEAM) emulator version 5.6.3 [source] [smp:8] [async-threads:0] [kernel-poll:false]
+Eshell V5.6.3  (abort with ^G)
+1&gt;
+</code>
+
+If not, well post a comment and I will try to help you one on one. Now you are officially in the Erlang. We need to compile our code so we want to enter the following after the 1&gt; in our REPL shell:
+
+<code>c(sample).</code>
+
+Once again, watch for that period, it symbolizes the end of a statement just like a sentence in English. It is very, very important. With that statement, Erlang went looking for the file sample.erl in the local directory, found it, compiled it, and loaded it into the execution environment all with one letter, pretty cool. The REPL shell will output the following
+
+<code>
+{ok,sample}
+2&gt;
+</code>
+
+Now type in <code>sample:factorial(6).</code> into the REPL shell and you should get a result of 720.
+
+Way to go on your first Erlang program, see that wasn't that hard or crazy. To leave the REPL shell, type
+
+<code>q().
+</code>
+Remember the period.

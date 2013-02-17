@@ -1,0 +1,21 @@
+---
+layout: post
+title: Installing Erlang on Mac OS X 10.5 (Leopard)
+published: true
+date: 2008-09-28
+categories: []
+posterous_url: http://www.voodootikigod.com/installing-erlang-on-mac-os-x-105-leopard
+posterous_slug: installing-erlang-on-mac-os-x-105-leopard
+---
+<p>I want to start this blog post out with a nod to the inspiration, the godfather of introductory installations - <a href="http://hivelogic.com/">Dan Benjamin</a>, who is most likely responsible for more than half of the installations of Ruby and Ruby on Rails on Mac OS X. His blog posts are always high educational and the model of what should be a technical blog post. I am going to use his post as a template for helping to drive this tutorial in a meaningful and worthwhile manner.</p>
+<h2>Before We Start</h2>
+<p>Although we are just installing software that should not do anything but enhance or add to your system, it is always a good idea to be safe and have a backup. Whether you do a full system back up with something like <a href="http://www.shirt-pocket.com/SuperDuper/">SuperDuper!</a> or the always available Time Machine, make sure you have something to fall back on.  Second, we are installing from source during this installation because you can obtain a better tuned system by installing it manually instead of MacPorts or Fink. You can easily install the most recent version of Erlang through MacPorts using the single command:</p>
+<p><code>sudo port install erlang</code></p>
+<p>If you want to get coding Erlang quickly, then I recommend using MacPorts.</p>
+<h2>Prerequisites</h2>
+<p>In order to install Erlang, you are going to need the following items available on your computer:</p>
+<ul>
+<li>Mac OS X 10.5 (Leopard)</li>
+<li>XCode 3.0 or newer</li>
+<li>A comfort level with using the Mac OS X Terminal application. <em><strong>Note: </strong><span style="font-style: normal;">The remainder of this article assumes you are using the default bash shell that is provided with Mac OS X Leopard. If you are using something different than bash (like zsh, tcsh, or others) then you will need to look up the syntax mappings that are appropriate for your specific shell.</span></em></li>
+</ul>

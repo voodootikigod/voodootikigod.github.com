@@ -1,0 +1,46 @@
+---
+layout: post
+title: Relaxing on the Couch(DB)
+published: true
+date: 2009-01-15
+categories: []
+posterous_url: http://www.voodootikigod.com/relaxing-on-the-couchdb
+posterous_slug: relaxing-on-the-couchdb
+---
+<p>So I have one day off between running my company and working for the new company. It is bone chilling cold in DC so I decided to stay in and play with <a href="http://couchdb.apache.org/">CouchDB</a> and <a href="http://github.com/jchris/couchapp/tree/master">CouchApp</a>. CouchApp is a set of utilities that makes building standalone CouchDB based applications simple and easy. The goal of the project is to a loose framework that allows you to build and host applications within CouchDB, think of it as shared hosting where the "database" is the shared host for both data storage and file serving. Chris Anderson clearly notes in his README that this is clearly not for all purposes, in fact its probably not even for most purposes, but it does fit nicely in a "build a quick application for personal reasons" space so that's where we are going to use it.  For this first post, I am going to walkthrough, in similar vain to the great <a href="http://danbenjamin.com/articles/2005/12/ruby_rails_lighttpd_mysql_tiger">Dan Benjamin</a> how to get started with CouchDB. We are going to be using the same layout as Mr. Benjamin does to install CouchDB, so be sure to read his "Paths" section and follow it, but the short of the matter is to ensure that a line like:  <code>export PATH=/usr/local/bin:$PATH</code> is present in your appropriate profile (.bash_profile, .profile) file so you will be able to immediately execute the CouchDB system.</p>
+<p><strong>Moving the Couch In</strong></p>
+<p>First things first, we need to get CouchDB up and running. There are several resources on the internet that provide you with instructions, but for consolidation sake, here is the quick and dirty. You need to start by installing the dependencies for CouchDB, for OS X its very easy (and recommended) to do with <a href="http://www.macports.org/">MacPorts</a>. At a Terminal prompt enter the following line and go get a cup of coffee. It will take a bit of time.</p>
+<p><code>sudo port install icu erlang spidermonkey curl</code></p>
+<p>This will download and install all of the dependencies that you will need to install CouchDB properly. A quick break down of these so you know what you are getting is the following:</p>
+<ul>
+<li><strong>icu</strong> - international components for Unicode.</li>
+<li><strong>erlang</strong> - A concurrent focused programming language that is worth <a href="http://www.erlang.org">checking out</a>.</li>
+<li><strong>spidermonkey</strong> - A JavaScript implementation in C from <a href="http://www.mozilla.org/js/spidermonkey/">Mozilla</a>.</li>
+<li><strong>curl</strong> - Command line tool for <a href="http://curl.haxx.se/">URL and URI handling</a>.</li>
+</ul>
+<p>For the effort we are going to do, not hacking CouchDB, but hacking on top of CouchDB, we will use the official SVN base. If you want to hack on the CouchDB code base, check out this <a href="http://github.com/halorgium/couchdb/tree/master">git branch</a>. The code we are about to check out is the edge version of CouchDB. The last release was 0.8.1 and while its a solid and stable release, the edge version provides some great feature enhancements and new features that we will want to take advantage of. It is quite stable and solid in its own right, so don't let "edge" scare you. The team is driving towards a 1.0 solid release in the coming months, so I recommend living on the edge for now and stabilize when the 1.0 is released.</p>
+<p>To checkout the source, you will need <a href="http://svn.collab.net/repos/svn/trunk/INSTALL">SVN</a>, but if you are reading this, I am going to assume you either have or had it installed for other projects. Enter the following code into the Terminal:</p>
+<p><code>svn checkout http://svn.apache.org/repos/asf/couchdb/trunk/ couchdb<br /> cd couchdb<br /> ./bootstrap &amp;&amp; ./configure --prefix /usr/local &amp;&amp; make<br /> sudo make install</code></p>
+<p>This will checkout the current trunk of CouchDB to a folder called "couchdb" without the quotes, Enter that directory, the execute three commands in unison that will bootstrap, configure, and then make CouchDB. This may take some time (roughly 5 minutes on a modern computer). The final line will execute as a "privileged user" and install CouchDB to the /usr/local/ directory structure which is in our path.</p>
+<p>To quickly run CouchDB, albeit not in the safest of manners - we will add safety later, enter the following command into your Terminal:</p>
+<p><code>sudo couchdb</code></p>
+<p>You should see output on the Terminal like this</p>
+<p><code>Apache CouchDB 0.9.0a734728-incubating (LogLevel=info) is starting.<br /> Apache CouchDB has started. Time to relax.</code></p>
+<p>This means that your CouchDB system is up and running. To verify this, point your web browser to <a href="http://127.0.0.1:5984/_utils/">http://127.0.0.1:5984/_utils/</a> which is the impressive web based interface to CouchDB. This interface is similar in concept to packages you might have used to manage a Relational Database Management System (RDBMS) like MySQL or PostgreSQL. The screen will look something like this:</p>
+<p style="text-align: center;">[[posterous-content:nqDtBxAdszstjpcvfhcm]]</p>
+<p>In this interface, your databases and "work content" are on the left and your tools and database quick links are on the right. To create a database, you click the "Create Database" link in the top left corner. It uses some nice JavaScript techniques to provide you with a very rich interface for creating databases and documents. Let's go ahead and create a new database called "sampledb" without the quotes.</p>
+<p style="text-align: center;">[[posterous-content:GJoyfxisaxcurrFuBezl]]</p>
+<p>Then click the "Create" button. This will take you to the new database immediately. CouchDB is not like a traditional RDBMS in that instead of tables, columns, and rows, everything is just a document. Documents are a very powerful concept that is freeform and able to handle a wide variety of data. That said, documents are not for every type of domain. For a more in depth discussion and dive into CouchDB concepts, I highly recommend reading through the beta book, <a href="http://books.couchdb.org/relax/">Relax With CouchDB</a>. To quickly show you some of the neat things we can do with this database we just made, lets add a document using the "Create Document" link where the "Create Database" link was before.</p>
+<p style="text-align: center;">[[posterous-content:pnzdtoGoADllhiIhECvr]]</p>
+<p>As happened with the create database, there is a nice little pop-up, although for this one, we are just going to let CouchDB identify the document for us. I am purposefully glazing over what this ID does, but it is very fundamental in the shift to CouchDB, check out the aforementioned book for a full discussion on it. For now, just hit the "Create" button to use an auto-generated ID. Without even writing a line of code, we can quickly begin adding very rich and meaningful data into CouchDB. The diagram below shows a new field added (through the "Create Field" button) called "name" with the value of that field being a hash with keys for "first", "middle", and "last" and their values.</p>
+<p style="text-align: center;">[[posterous-content:ABksCindgkiBnpAAntwz]]&nbsp;&nbsp;</p>
+<p>Notice its all stored as one, wrapped up, meaningful data field. We didn't have to define a schema, then input based on the schema. The hash should look very similar to JavaScript you may have worked with because thats all it really is - JavaScript. All documents and fields are serialized to <a href="http://www.json.org/">JavaScript Object Notation</a> (JSON) and communicated to CouchDB. To save the document, press the "Save Document" button in the upper left corner. Until you save the document, all changes are local. This is key to note, there is no auto-saving going on so that you can build up your document and the flush all changes at once. Now that you have CouchDB up and running here are some quick exercises for you to try out some of the basic functionality. You should be able to accomplish these without any further knowledge then we have described above.</p>
+<p><strong>Exercises</strong></p>
+<ol>
+<li>Attach three different files to a document, make sure they are of different type and notice that you do not have to specify any structure or storage place for the files, its handled automatically for you.</li>
+<li>Go back to the original version ("Previous Version") and try to add a new field and save the change.</li>
+<li>Create a field called friend with the value of your name.</li>
+<li>Create a field called favorite colors that has an array of colors in the rainbow (red, orange, yellow, green, blue, indigo, violet).</li>
+<li>Click on the "Source" tab and try to map the "Source" view to the "Fields" view. Having two browser windows open might help with this.</li>
+<li>Delete the document.</li>
+</ol>
