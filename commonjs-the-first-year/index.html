@@ -1,0 +1,232 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CommonJS: the First Year - Voodoo Tiki God</title>
+	<meta name="author" content="Chris Williams">
+
+	
+	<meta name="description" content="Posted on January 29th, 2010 by Kevin Dangoor CommonJS: the First Year A year ago today, I posted “What Server Side JavaScript Needs”, inviting &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Voodoo Tiki God" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Voodoo Tiki God</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:voodootikigod.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/103300350874263468636?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/voodootikigod" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/voodootikigod" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:voodootikigod.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">CommonJS: The First Year</h2>
+	<div class="entry-content"><div class="posterous_bookmarklet_entry">
+      <blockquote><div>
+        
+	
+		
+			<div>
+				<div>Posted on January 29th, 2010 by Kevin Dangoor</div>
+				<h3><a href="http://www.blueskyonmars.com/2010/01/29/commonjs-the-first-year/" title="Permanent Link to CommonJS: the First Year" rel="bookmark">CommonJS: the First Year</a></h3>
+		
+				<div>
+					<p>A year ago today, I posted <a href="http://www.blueskyonmars.com/2009/01/29/what-server-side-javascript-needs/">“What Server Side JavaScript Needs”</a>, inviting people to come and turn JavaScript into a competitive platform for applications on the server. Quite a few people answered the call. While the focus of the group has been on JavaScript in non-browser contexts, we’re ultimately shooting for as much of a standard that can cross between server, browser, GUI and command line applications as possible. That’s why we changed the name to <a href="http://commonjs.org/">CommonJS</a> in the second half of the year. Ironically, most of my own personal use of CommonJS so far has been in the browser. I’ll come back to the personal perspective, though.</p>
+<h3>The Original Goals</h3>
+<p>As laid out in my original blog post, we were seeking to create:</p>
+<ul>
+<li>A module system,</li>
+<li>A cross-interpreter standard library,</li>
+<li>A few standard interfaces,</li>
+<li>A package system, and</li>
+<li>A package repository</li>
+</ul>
+<p>Note that the idea here is that this group creates specs, which will have multiple implementations.</p>
+<p>The goal is to have these things working across as many operating systems and interpreters as possible. There are three major operating systems (Windows, Mac, Linux) and four major interpreters (SpiderMonkey, Rhino, v8, JavaScriptCore). Plus there’s “the browser”, which is a unique environment unto itself. That’s a fair bit of surface area to cover.</p>
+<p>Oddly, I think the one of those eight “platforms” with the poorest implementation support is Windows. Most of the CommonJS developers are using Macs or Linux machines, so I’m not sure how much time has really been spent on Windows. I would imagine that JavaScriptCore on Windows is probably the least supported combination.</p>
+<p>The good news, however, is that there are projects using <em>all</em> of those JavaScript interpreters and platform compatibility issues will ultimately be ironed out.</p>
+<h3>CommonJS and the ECMAScript Standard</h3>
+<p>The CommonJS group is a grassroots effort, and not some formal standards body. In some ways, however, it works like a standards body in that the people working on the standard are also implementing the standard-in-progress and using it to build real applications.</p>
+<p>We have no control over the ECMAScript language, which is managed by the TC39 working group. However, there are a few people involved in CommonJS who are part of TC39, and I have firsthand knowledge of others who are keeping an eye on how things are going with CommonJS.</p>
+<p>The CommonJS standard-in-progress is designed to work on a subset of ECMAScript 5 that can be made to work on today’s ECMAScript 3 interpreters. ECMAScript 3 is the standard that is running in all of the browsers. In other words, in a CommonJS application you can count on Array.prototype.forEach to be implemented. Obviously, applications can do whatever they want (array destructuring? knock yourself out, but your app will only work on SpiderMonkey and Rhino).</p>
+<p>One certainty about CommonJS is that inventing new language syntax is out of scope.</p>
+<h3>The Module System</h3>
+<p>The CommonJS group has been remarkably good at avoiding bikeshedding. While there is discussion about names of things, there isn’t <em>heated</em> discussion about it. People are far more interested in issues of functionality and ease-of-use. This is a very good thing, and it allowed us to get <a href="http://wiki.commonjs.org/wiki/Modules/1.1">modules</a> out of the way early on.</p>
+<p>Of course, the lack of bikeshedding doesn’t mean that everyone agrees on things. The CommonJS module system has its controversial aspects, but I think it does well given the constraints:</p>
+<ol>
+<li>must work with ES3 syntax (destructuring could actually be useful, but we’re not going to do it)</li>
+<li>modules should have self-contained namespaces and be explicit about data the want to export</li>
+<li>it should be possible to make modules tamper-proof, though this is not a requirement</li>
+<li>using a module should be competitive with using modules in languages like Python and Ruby</li>
+</ol>
+<p>TC39 had considered adding modules to ECMAScript 4 and there are module proposals on the table for ECMAScript Harmony that would add some syntax to JavaScript that would look similar to CommonJS modules. Here’s a short module to give you an idea of what CommonJS modules look like:</p>
+<div class="CodeRay">
+  <div class="code"><pre>var sillymath = require(&quot;extramath/silly&quot;);
+
+exports.addTwo = function(num) {
+    return sillymath.add(num, 2);
+};</pre></div>
+</div>
+
+<p>Personally, I find this to be reasonably concise with a nice level of explicitness. Some syntax sugar would be good, and I hope we get that in ES-Harmony. But, this syntax works fine today.</p>
+<p>Of course, this syntax is not without controversy. The biggest controversy has been that require() is synchronous – the “extramath/silly” module has to be available as the module above is loaded. However, there are a couple of reasonable ways to deal with this problem and I am happily working with CommonJS modules in the browser which is the environment that is least tolerant to synchronous loading.</p>
+<p>Controversy or not, this basic module system was ratified last winter and has been implemented on all target environments of CommonJS.</p>
+<p>Discussion is ongoing for a tie-in to the module standard: the <a href="http://wiki.commonjs.org/wiki/Modules/Transport">module transport</a> standard. Without additional help from the browser or some additional scaffolding running in the page, the module syntax above doesn’t work via a </p>
+<h2>The Standard Library</h2>
+<p>I had hoped we’d get farther on the standard library than we have, but it can indeed be a long process. <a href="http://wiki.commonjs.org/wiki/System/1.0">system</a> and <a href="http://wiki.commonjs.org/wiki/Unit_Testing/1.0">unit testing</a> are the only ones that have been ratified at this point. We have come a long way on file access.</p>
+<p>“What!?!?”, I hear you say, “there’s no standard for accessing files yet?” That’s right. And there are a couple of reasons that it’s been challenging to get there.</p>
+<p>Consider that JavaScript does not even have a standard object to deal with <em>binary data</em>. That is a basic prerequisite to working with files. JavaScript strings are not the same as a binary data container. So, there’s binary data to handle, streams to figure out and then file functionality built on top of that. There’s also the consideration of whether file access is synchronous or asynchronous. We’ve made tons of headway on this, and there are certainly implementations of some of the specs. It’s just a matter of finishing them.</p>
+<p>I’m hoping to see <a href="http://wiki.commonjs.org/wiki/Promises">promises</a> become a part of the standard, because some form of that interface is very convenient to use for asynchronous operations.</p>
+<h2>Standard Interfaces</h2>
+<p>We do have a very useful interface with implementations and people actively using it: the <a href="http://wiki.commonjs.org/wiki/JSGI/Level0/A/Draft2">JavaScript Gateway Interface (JSGI)</a>. That spec has not yet been ratified, but it is getting closer and there are apps being built against it today.</p>
+<p>Database access has not yet been standardized. It will be interesting to see if we can come up with a good interface that can usefully target SQL and NoSQL databases alike.</p>
+<h2>Package System</h2>
+<p>We have a recently ratified spec for <a href="http://wiki.commonjs.org/wiki/Packages/1.0">packages of CommonJS code</a>. I hope this will bring about a collection of good package managers with different focuses and targeting different environments. There have already been a couple of attempts to create package management systems, and the most fleshed out one that I’ve seen is Tusk, which is bundled with <a href="http://narwhaljs.org/">Narwhal</a>. Once a few more specs are ratified, Tusk should be able to run on other CommonJS implementations.</p>
+<h2>Package Repository</h2>
+<p>Tusk is using <a href="http://github.com/">GitHub</a> as a package repository, and that is working okay for the time being. A couple weeks back, we got word that the <a href="http://groups.google.com/group/commonjs/browse_thread/thread/39dcdede35edcddd">jQuery plugin repository is going to provide a CommonJS package.json file</a> for the ~5000 plugins in their database. This is exciting, because this infrastructure could prove to be very useful to us going forward.</p>
+<h2>JavaScript: Bubbling Up</h2>
+<p>2009 was a terrific year for JavaScript. In the browser, we’ve obviously seen tons of growth in increasingly sophisticated applications. I think the interest is steadily building to use JavaScript more and more outside of the browser. The two JSConf conferences (in <a href="http://jsconf.us/">Washington DC</a> and <a href="http://jsconf.eu/">Berlin</a>) were great successes by all accounts I’ve seen. <a href="http://phonegap.com/">PhoneGap</a>, <a href="http://www.appcelerator.com/">Titanium</a> and Palm’s <a href="http://developer.palm.com/">WebOS</a> have created ways for people to use web tech to create installable apps for mobile phones. <a href="http://nodejs.org/">node.js</a> has been a huge driver for people to check out building scalable, asynchronous JavaScript apps on the server. And, of course, CommonJS is finding its way into more and more applications.</p>
+<h2>My Personal View</h2>
+<p>I had hoped to personally have more time to devote to CommonJS in 2009, but I am delighted at how a great collection of people have stepped in and carried the specifications and implementations forward through a lot of hard work and force of will. More than 5,100 messages have gone across the mailing list, and more than 10% of those have been from <a href="http://askawizard.blogspot.com/">Kris Kowal</a>. Kris has done a ton of work in ironing out many of the specs and deserves a good deal of credit for where CommonJS is today. He and <a href="http://tlrobinson.net/">Tom Robinson</a> even stood in for me when I had to cancel my trip to JSConf.eu (thanks, guys!).</p>
+<p>Taking a look at the <a href="http://groups.google.com/group/commonjs/about">top posters on the googlegroup</a>, you can see how many people have put so much into CommonJS. More than 10 people have contributed more than 100 messages a piece and, for many of those people, there was a lot of time spent in the email discussions, IRC chats, spec writing and implementation of those specs. Plus, as early adopters, they have the joy of tweaking things as the specs have changed over time. Thanks to all of you for the dedication and the will to get it done.</p>
+<p><a href="http://mozillalabs.com/bespin/">Bespin</a>’s client side JavaScript code is all CommonJS modules now, partly thanks to the efforts of <a href="http://www.okito.net/">Charles Jolley</a> to migrate the <a href="http://sproutcore.com/">SproutCore</a> framework to CommonJS and creating the Tiki module loader. From that standpoint, I’m already using more CommonJS now than I did in 2009. I’m also hoping that 2010 will bring a Bespin server “reboot”, where we start migrating server functionality to CommonJS.</p>
+<p>On the whole, I think that 2009 was a great year for JavaScript and CommonJS and I think 2010 is going to be even bigger. I hope to meet more enthusiastic JavaScript hackers at JSConf.us in April!</p>
+<h3>Comments?</h3>
+<p>You can direct them to the <a href="http://groups.google.com/group/commonjs/browse_thread/thread/53c59828899ffcd9">thread on the CommonJS googlegroup</a> or email to <a href="http://www.blueskyonmars.com/2010/01/29/commonjs-the-first-yearmailto:editor@blueskyonmars.com">editor@blueskyonmars.com</a>.</p>
+<p><span><a href="http://www.blueskyonmars.com/2010/01/29/commonjs-the-first-year#" title="ShareThis via email, AIM, social bookmarking and networking sites, etc."><span>ShareThis</span></a></span></p>				</div>
+			</div>
+			
+
+
+
+
+			
+		<p>Comments are closed.</p>
+
+	
+
+		
+		<p>
+
+	
+	</p></div></blockquote>
+
+<div class="posterous_quote_citation">via <a href="http://www.blueskyonmars.com/2010/01/29/commonjs-the-first-year/">blueskyonmars.com</a></div>
+    <p>What a year for CommonJS and JavaScript in general. One has to wonder what 2010 holds for JavaScript and the JavaScript community!</p></div>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-30T00:00:00-05:00" pubdate data-updated="true">Jan 30<span>th</span>, 2010</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Chris Williams
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

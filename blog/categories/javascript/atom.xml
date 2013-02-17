@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: javascript | Voodoo Tiki God]]></title>
+  <link href="http://voodootikigod.github.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://voodootikigod.github.com/"/>
+  <updated>2013-02-16T21:02:57-05:00</updated>
+  <id>http://voodootikigod.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Williams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Regional JS Speaker Directory]]></title>
+    <link href="http://voodootikigod.github.com/the-regional-js-speaker-directory/"/>
+    <updated>2012-02-23T00:00:00-05:00</updated>
+    <id>http://voodootikigod.github.com/the-regional-js-speaker-directory</id>
+    <content type="html"><![CDATA[<p>As being the curator of JSConf, I see a lot of new names and exciting topics during the Call For Speakers process, but unfortunately we only have 20-24 slots available for speakers. If I could I would have everyone speak all the time! Luckily there are hundreds of JS meetup groups happening all across the USA and thousands across the world - it is an exciting time. We, the JSConf team, wanted to make a way to help these JS meetup groups connect with the people that register for the Call for Speakers of JSConf (US|EU|..) that might even live or work right next door to them.</p>
+
+
+<p>And so the <a href="https://docs.google.com/spreadsheet/viewform?formkey=dGN0MEVOMUVVRVVtT2lOR1kwdTJJblE6MQ">Regional JS Speaker Directory</a> was born.</p>
+
+
+<p>Initially this is targeting local JS meetup groups, but could very easily be used to help curate amazing local content for various <a href="http://2011.texasjavascript.com/">regional</a> <a href="http://capitoljs.com/">JS</a> <a href="http://reddirtjs.com/">conferences</a>. For now, we are just gathering details about speakers, but we will be curating that list and providing them to regionally based meetup organizers as part of JSConf US 2012. This will hopefully get people talking with one another and allowing all these amazing talks happen across the USA and eventually the world. This is a pretty exciting initiative for us and for the JS community so anything you can do to help us would be greatly appreciated. At the very least, be sure to&nbsp;<a href="https://docs.google.com/spreadsheet/viewform?formkey=dGN0MEVOMUVVRVVtT2lOR1kwdTJJblE6MQ">sign yourself up</a>!</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Real Y-Combinator (in JavaScript)]]></title>
+    <link href="http://voodootikigod.github.com/the-real-y-combinator-in-javascript/"/>
+    <updated>2009-08-31T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/the-real-y-combinator-in-javascript</id>
+    <content type="html"><![CDATA[<p>I want to get to this eventually in <a href="http://www.nakedjavascript">Naked JavaScript</a>, but for the time being I wanted to share a great little code bit with you in JavaScript. Also given <a href="http://paulbarry.com/articles/2009/08/30/tail-call-optimization">Paul's recent post</a>, I decided it would be good to continue the functional JavaScript by providing a different, way off accomplishing tail call optimization. As I <a href="http://voodootikigod.com/paul-barry-shows-how-to-accomplish-tail-call">mentioned previously</a>, JavaScript has a strict limit on the call stack of around 1,000 entries (varies based on interpreter implementation) which commonly prevents any level of deep recursion, especially if writing portable JavaScript for multiple browsers. Paul's method of leveraging an accumulator wrapped in a closure is a great method for accomplishing a recursive task in a stack or memory constrained environment. So great in fact that the basic pattern of detecting repetition and translating it to a linear fashion is very similar to the underpinnings of what <a href="https://wiki.mozilla.org/JavaScript:TraceMonkey">TraceMonkey</a> automatically accomplishes using <a href="http://www.ics.uci.edu/%7Efranz/Site/pubs-pdf/ICS-TR-06-16.pdf">Trace Trees</a>.</p>
+
+
+<p>From Paul's description of the problem at hand, we are trying to find the odds of becoming the next&nbsp;mega-millionare. The following is the imperative solution provided by Paul using a variable to accumulate the odds at any given step in the process as the multiple of the previous value and the new expression result.</p>
+
+
+<p><script src="https://gist.github.com/178832.js"></script></p>
+
+
+<p>Paul presents the conversion of this code segment to a simple recursive function that will help us to find the value of by calling the function over and over with varying values defined within the function until a termination clause is reached. In this case the termination clause is when the variable n equals the value 0.</p>
+
+
+<p><script src="https://gist.github.com/178842.js"></script></p>
+
+
+<p>With the basic code from those two examples and a utility for the spell books of lambda calculus, we can actually create a recursive function and then apply it to the exercise. Mind you that this will still suffer from the aforementioned call stack limitations placed on the JavaScript VM due to its applicative nature, and realistically there are far better ways for obtaining the same result (one of which shown at the end), but to hell with all that.</p>
+
+
+<p>By using a technique known as <a href="http://en.wikipedia.org/wiki/Fixed_point_combinator">Fixed Point Combinator</a>, and specifically a <a href="http://en.wikipedia.org/wiki/Fixed_point_combinator#Y_combinator">Y-Combinator</a>&nbsp;we will not on obtain the result but build recursion without using a named function. To begin, a Fixed Point Combinator is a special type of higher order function that has the unique transitive property that for any function <strong>F </strong>and value <strong>V</strong>, the value of the Y-Combinator function <strong>G </strong>when passed the parameter <strong>F</strong> will return the value <strong>V</strong> which is the same value as when <strong>V</strong> is passed to <strong>F</strong>. Lost? Lets look at this description as a the transitive function definition:</p>
+
+
+<p>[code]F(G(F)) == G(F)[/code]</p>
+
+
+<p>The definition of a combinator relies on the lazy evaluation of functions in order to allow a function to be defined in terms of itself, often times referred to as <em>anonymous recursion</em>. This requires a deep understanding or interest in <a href="http://en.wikipedia.org/wiki/Lambda_calculus">lambda calculus</a> and this function is deviously complex and compact. For more details about a Y-Combinator, which is a specific formula of a Fixed Point Combinator, <a href="http://www.ece.uc.edu/~franco/C511/html/Scheme/ycomb.html">look here</a>.&nbsp;Let us look at it as a JavaScript function:</p>
+
+
+<p><script src="https://gist.github.com/178862.js"></script></p>
+
+
+<p>This definition is from <a href="http://blog.jcoglan.com/2008/01/10/deriving-the-y-combinator/">The If Works</a> and happens to be one of the most compact, but readable implementations I have seen and it even slips a couple extra JavaScript specific enhancements to make it even more flexible. The definition of this function is near exact to the formulaic definition described in Scheme from the link above with one key advantage. Using the <em><a href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments">arguments</a></em>&nbsp;object in combination with the <em><a href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Function/apply">apply</a></em> function that is available on functions, we can make this more flexible than the one described in <a href="http://javascript.crockford.com/little.html">The Little JavaScripter</a> by <a href="http://javascript.crockford.com/">Douglas Crockford</a>&nbsp;by allowing it to handle any number of arguments passed in.</p>
+
+
+<p>With this definition of a Y-Combinator, let us revise the original problem set using the code from the recursive definition. The most important part that we can take from the recursive definition is the conditional logic, in fact that is all we will be taking. The Y-Combinator version of this looks like this:</p>
+
+
+<p><script src="https://gist.github.com/178878.js"></script></p>
+
+
+<p>Which looks similar to the recursive definition and it really should, because all we have done is create recursion using anonymous functions instead of named functions. As I said earlier, this method is most likely not going to win you fame or fortune (but if it does I claim 5% of the winnings), &nbsp;it is however a great example of the functional capabilities of the JavaScript programming language. All that said, here is probably the most terse definition of this function I could devise:</p>
+
+
+<p><script src="https://gist.github.com/178887.js"></script></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Paul Barry Shows How to Accomplish Tail Call Optimization in JavaScript]]></title>
+    <link href="http://voodootikigod.github.com/paul-barry-shows-how-to-accomplish-tail-call/"/>
+    <updated>2009-08-31T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/paul-barry-shows-how-to-accomplish-tail-call</id>
+    <content type="html"><![CDATA[<div class="posterous_bookmarklet_entry">
+<blockquote>
+<p />
+</blockquote>
+<h3><span style="font-weight: normal; font-size: 13px;">Local Polyglot Extraordinare, <a href="http://www.paulbarry.com">Paul Barry</a>&nbsp;has been on a JavaScript spree of late, especially in showing how JavaScript compares to other full functional programming languages like Clojure, Haskell, and Erlang. <a href="http://paulbarry.com/articles/2009/08/30/tail-call-optimization">In his most recent article</a>, he goes about showing how to use the accumulator pattern, from the SICP book if I am not mistaken, to accomplish Tail Call Optimization in JavaScript. One of the things he doesn't mention and is a known issue with JavaScript in most interpreters is that after around 1,000 recursive calls the interpreter will exception out the execution regardless. This is done based purely on the call stack and not on memory usage in an (vain) attempt to be protective in nature due to the "constrained" client environment and operating sandbox of JavaScript. It more often then not becomes a pain in the tail (recursion) in the modern era where people have more than 64kb of memory. That said, Paul's technique is a great one that is widely applicable in many formats, not just JavaScript.</span></h3>
+<p>Here's hoping he continues to love the JS and what he is doing that has transpired these recent posts.</p>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Naked JavaScript]]></title>
+    <link href="http://voodootikigod.github.com/naked-javascript/"/>
+    <updated>2009-06-24T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/naked-javascript</id>
+    <content type="html"><![CDATA[<p>I began writing on <a href="http://www.posterous.com">Posterous</a> for a new personal project that I am currently working on which will provide a series of posts about "<a href="http://www.nakedjavascript.com">Naked JavaScript</a>" or JavaScript without the DOM. The aspiration of this project is that I will post at least once a week (ideally twice a week) on the most interesting and hottest topics in JavaScript, specifically its use outside of the browser. I am just starting on this venture and want to fill the queue with interesting content and articles so that I can keep the hungry hordes of information goers (ahem, you) happy, so stay tuned to that feed as I am sure you will find some interesting items soon to come to it.&nbsp;</p>
+
+
+<p>Anyhow, so I began using Posterous for that and decided to use it for more personal things as well, I haven't completely switched over from my standard one, but I am getting very close. The fact that the <a href="http://blog.posterous.com/posterous-is-the-best-way-to-publish-video-an-0">iPhone 3GS can post photos and videos</a> directly to the blog is a super sweet idea, and one that I am both excited and fretful about using. Anyhow stay tuned for future things to come and sorry about the crazy pictures and video posts earlier (since removed) I was testing out the functions and had no idea that it was posting to the various social networks (embarrassing).&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript: The Great Part]]></title>
+    <link href="http://voodootikigod.github.com/javascript-the-great-part/"/>
+    <updated>2009-04-28T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/javascript-the-great-part</id>
+    <content type="html"><![CDATA[<p>Laura and I just wrapped up JSConf 2009, which <a href="http://search.twitter.com/search?q=jsconf" title="Twitter Search: JSConf">evidently</a> <a href="http://www.michaelharrison.ws/weblog/?p=132">went</a> <a href="http://www.blueskyonmars.com/2009/04/27/jsconf-2009-the-best-conference-you-couldnt-attend/">over</a> <a href="http://www.subprint.com/blog/jsconf-2009-day-one/">very</a> <a href="http://www.subprint.com/blog/jsconf-2009-&amp;mdash;-day-two/">well</a>. We couldn't be more happy with the way the conference went; the attendees, the speakers, the excitement, and the energy - it was the best conference we have ever been to, even though we spent most of the time running around. There was a lot of time and preparation that went into JSConf 2009 to ensure that each detail, each idea was carefully tailored to the community. For those of you that attended and those that were unable to, we will be posting the videos over the coming months - every presentation was amazing so be sure to check out all of them.</p>
+
+
+<p>On to the focus of this post - the JavaScript community has long since taken a side saddle or back seat to other less capable and less prevalent languages. The presentations drew out the amazing genius and talent that happily and quietly thrives in the community. If you just look at the Track A sessions (listed on the <a href="http://www.jsconf2009.com/speakers.html">web site</a>) you will see that JavaScript spreads across mobile, data, desktop, testing, and its old familiar, the web. But its more than that, what you don't see on the web site (yet) is the wonderful Track B and Hacker Lounge items that happened during JSConf 2009. The presentations in Track B were easily all on par with Track A and covered an even wider range of topics from typography to programmatic music generation to server side JavaScript.</p>
+
+
+<p>That all said, the most amazing part of the conference was not the presentations. At this conference you had some of the smartest people in the programming world talking about a language that is unfortunately thought of as a necessary evil. Everyone was jovial, welcoming, friendly, and communal it was truly a community. There was no dominant "rockstar" that parade around overly proud of themselves, despite the amazing things that every individual in attendance has (and will further) accomplish. That is the greatest part of the JavaScript community - it is truly a thriving community flush with talented people. This doesn't just include &nbsp;the speakers and attendees. The sponsors of JSConf - <a href="http://www.rga.com">R/GA</a>, <a href="http://www.mozilla.org">Mozilla</a>, <a href="http://www.joyent.com">Joyent</a>/<a href="http://www.sun.com">Sun</a>, and <a href="http://www.yahoo.com">Yahoo!</a> - were amazingly willing to turn down the "marketing" and instead embrace and grow the community. Their own spread of capabilities - Digital Agency, Web Company, Platform Providers, Search and Development Networks, respectively - shows the range and impact of JavaScript. The fact that there was 130 of the smartest, most driven, and widest ranging people and companies present at JSConf 2009 and each person you met was incredibly humble and friendly - that is how I know that this is the community I want to be a part of.</p>
+
+
+<p>This was the first conference that actually turned and focused in on JavaScript, the programming language, so this was a unique experience and that may have a hand in the humility of all - most people in attendance barely knew more than 4 other people in attendance, so we all arrived forced to make new friends. There is something there, though, that makes me proud of this community; instead of shelling up attendees made a concerted effort to meet, greet, and build relationships with one another. This conference was more than just a single event or moment in time - we have started a revolution. We are building a better community because we, JavaScript developers, have the rare capacity to understand that there is more to learn from using many languages and concepts than to arrogantly assume ours is the best and only solution. I am not trying to decry the value, processes, or importance of other language communities, just making a stand that we should continue to grow the JS community with a focus on talent,&nbsp;humility, and&nbsp;cooperation.</p>
+
+
+<p style="text-align: center;">[[posterous-content:qBnjvgeElAjlyymunbpv]]</p>
+
+
+<p>We are JavaScript, we welcome you to join us for the ride!</p>
+
+]]></content>
+  </entry>
+  
+</feed>

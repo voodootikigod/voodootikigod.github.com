@@ -1,0 +1,173 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Node.JS and the WebSocket protocol «  Devthought  - Voodoo Tiki God</title>
+	<meta name="author" content="Chris Williams">
+
+	
+	<meta name="description" content="After reading Simon Willison’s post on Node.JS, I decided I’d give it a try myself. Today I released node.websocket.js After a couple of months I’ve &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Voodoo Tiki God" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Voodoo Tiki God</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:voodootikigod.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/103300350874263468636?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/voodootikigod" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/voodootikigod" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:voodootikigod.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Node.JS and the WebSocket Protocol « Devthought</h2>
+	<div class="entry-content"><div class="posterous_bookmarklet_entry">
+      <blockquote><div>
+        
+        
+    <p>After reading <a href="http://simonwillison.net/2009/Nov/23/node/">Simon Willison’s</a> post on Node.JS, I decided I’d give it a try myself. Today I released <a href="http://github.com/guille/node.websocket.js/">node.websocket.js</a></p>
+<p>After a couple of months I’ve been watching the progress on the <a href="http://tools.ietf.org/pdf/draft-hixie-thewebsocketprotocol-60.pdf">WebSocket protocol</a>, which gives JavaScript developers full-duplex communications channels in the browser. This is a very exciting alternative to the COMET techniques we’re used to seeing. </p>
+<p>Node.JS is a framework for networked, event-driven applications, where JavaScript has a natural fit. This particular implementation is built on top of the excellent <a href="http://code.google.com/p/v8/">V8 engine</a>.</p>
+<p>Running the server is as simple as:</p>
+
+<div><div><div class="CodeRay">
+  <div class="code"><pre>$ node runserver.js</pre></div>
+</div>
+</div></div>
+
+<p><span></span></p>
+<p>Logging (in the Redis storage, an excellent persistent key-value storage mechanism which will be subject of another post) will begin.<br />
+Writing a client is equally easy:</p>
+
+<div><div><div class="CodeRay">
+  <div class="code"><pre>var a = new WebSocket();
+a.onmessage = function(event){
+   console.log(event.data);
+};</pre></div>
+</div>
+</div></div>
+
+<p>As you might know or induce already, the wonder of WebSocket is only available to a few selected browsers. To my knowledge only nightly Webkit, Chromium, trunk Firefox (and possibly Opera) have a decent degree of support of WebSocket.</p>
+<p>The bigger goal of this project is to provide an API that allows fallback on techniques such as XHR streaming, long-polling, forever iframe (+htmlfile), for cross-browser support and rapid development. Writing the server side modules for node.websocket.js is really pretty easy thanks to the excellent <a href="http://nodejs.org/api.html#_modules">modules API</a> Node.JS provides. And a bunch of projects that allow you to plug in Node.JS to a variety of data sources<a href="http://wiki.github.com/ry/node"> are already available</a>.</p>
+<p>Alexander Teinum also has a <a href="http://github.com/alexanderte/websocket-server-node.js">very minimal</a> implementation meant for local use, with which he’s empowering tools of the impressive <a href="http://www.brevityos.org/">BrevityOS</a> project. Other implementations include <a href="http://blogs.webtide.com/gregw/entry/jetty_websocket_server">Jetty’s</a> and <a href="http://kaazing.com">Kaazing</a>, both worth keeping an eye on.</p>
+  </div></blockquote>
+
+<div class="posterous_quote_citation">via <a href="http://devthought.com/blog/2009/12/nodejs-and-the-websocket-protocol/">devthought.com</a></div>
+    <p>WebSockets and Full Duplex Communication now available to node.js.</p></div>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-07T00:00:00-05:00" pubdate data-updated="true">Dec 7<span>th</span>, 2009</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Chris Williams
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

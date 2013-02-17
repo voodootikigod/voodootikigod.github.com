@@ -1,0 +1,179 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>AJAX Head Design Pattern - Voodoo Tiki God</title>
+	<meta name="author" content="Chris Williams">
+
+	
+	<meta name="description" content="Ken Collins from MetaSkills originally posted on his blog about the concept of an Ajax Head pattern in which he describes a pattern for providing a &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Voodoo Tiki God" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Voodoo Tiki God</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:voodootikigod.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/103300350874263468636?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/voodootikigod" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/voodootikigod" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:voodootikigod.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">AJAX Head Design Pattern</h2>
+	<div class="entry-content"><p>Ken Collins from MetaSkills originally <a href="http://www.metaskills.net/2008/5/24/the-ajax-head-br-design-pattern">posted on his blog</a> about the concept of an Ajax Head pattern in which he describes a pattern for providing a thin controller API that is responsible for initial GET response and all other actions beyond that are Boolean responses. He sums up the entire pattern, from his perspective, in a single quote:</p>
+<blockquote class="posterous_short_quote">The AJAX head design pattern forces the view and controller to work in isolation with the most minimal coupling possible. Kind of like a web service.</blockquote>
+<p>I have been working on several projects that are utilizing a variant, or as I would contend the resultant of this pattern, in very interesting and rewarding ways. I wanted to provide a more robust and implementation agnostic definition to the pattern, because I believe this pattern is quite revolutionary in the world of web programming. It serves well to resolve many of the issues that plague web application development since it focuses on isolation, encapsulation, and delegation of responsibilities. I have chosen to describe this pattern, as I view it, using the model set forth by the <a href="http://www.amazon.com/Enterprise-Application-Architecture-Addison-Wesley-Signature/dp/0321127420">Patterns of Enterprise Application Architecture</a> by <a href="http://martinfowler.com/">Martin Fowler</a>. I encourage you to read through the pattern and suspend or at least delay your immediate reaction until after you try using the pattern. In all cases that I have used it, it has felt more natural, more dynamic, and surprisingly faster than the competitive pattern of embedding dynamic data into static templates at run time. Enjoy.</p>
+<h2>AJAX Head</h2>
+<p>Web Applications, like many enterprise applications, are composed of several layers of data processing in order to properly and meaningfully decompose the problem set into encapsulated components.These components are constructed in a fashion that they can be used by any layer above them without knowing the details of layers below them. This creates a contract between the consuming layer and the providing layer regarding the expectation details and not the implementation details. In web applications, the concept of layering commonly stops being applied after the Service Layer [Staffor, PEAA] and utilizes a mixture of embedded behavior, data, and structure that is rendered out to a specific interface format.</p>
+<p>The AJAX Head pattern provides a thoughtful approach of how to maintain separation of behavior, data, and structure by extending the concept of layering into the user interface component. Furthermore, the AJAX Head pattern describes an implementation pattern that drastically modifies common web client-server interactions in order to bring them more closely in line with enterprise client-server interactions. This pattern relies heavily on the separation and isolation of responsibilities between components which yields better encapsulation and testability of each component.</p>
+<h3>How It Works</h3>
+<p>The AJAX Head Design Pattern can be implemented with any combination of server programming languages and client side languages, but does require that an Asynchronous JavaScript And XML connection can be established between the two endpoints (client-&gt;server). The basis of the pattern rests on the following key components:</p>
+<ol>
+<li>Statically defined HTML files that include single instance &#8220;templates&#8221; with sample data for all areas of the user interface that are meant to be dynamic. These HTML files should be descriptive of their intention through the use of proper and meaningful tags, identification, and classing derived from the specific domain. This layer is responsible for describing the structure and indicating the intention of the requestor. It provides &#8220;templates&#8221; for how the fulfillment of those intentions should be represented in order to be meaningful.</li>
+<li>Statically defined JavaScript files that include behavior definitions of the HTML pages as well as the ability to query and parse the data feeds provided by the server. This layer is responsible for detecting the requested intention, describing the intention to the Service Layer, and applying the response to the defined structure.</li>
+<li>A server side application programming interface (API) that can handle web service requests (XML-RPC, REST, SOAP, etc.) and produce standardized data responses appropriate for the request. The responses need to be in a format that is uniform across the API and retains the structure and composition of the data. Recommendations for this include JavaScript Object Notation (JSON), XML, or CSV. This layer is commonly referred to as the aforementioned Service Layer and is responsible for appropriate calling sub layers and performing any necessary processing in order to fulfill the intention.</li>
+</ol>
+<p>With these components the following workflow defines the process of rendering a single page:</p>
+<ol>
+<li>The browser requests a web page.</li>
+<li>The server returns the static HTML page appropriate to the request.</li>
+<li>The browser parses the HTML page and requests the necessary and appropriate JavaScript behavior definitions described by the HTML page.</li>
+<li>Once interpreted by the browser, the JavaScript behaviors will query the server using AJAX for the appropriate data elements. These AJAX requests will be fulfilled with the defined data format based on the request.</li>
+<li>The behavior definitions will parse the data feed and render the elements into the HTML structure based on the provided single item templates. If there are no items, the template is removed.</li>
+<li>Interaction and behavior updates are applied to the new data elements as described in the behavior definitions.</li>
+</ol>
+<p><strong>Differences From Other Patterns</strong> This differs tremendously from the embedded template pattern currently employed in most web application frameworks because it pushes all of the rendering down to the client system, distributing the load and strain on the server across the interacting components. This pattern leverages the prevalence and availability of network connectivity with the server to reverse the presentation work flow from render and serve to serve and render. This key difference allows for a natural separation and encapsulation between the components of the presentation system. It normalizes the user interface into an interaction interface through a standard API, thus enforcing and encouraging web service style development with true abstraction between the layers.</p>
+<p><strong>Results</strong> A result of this separation is that all of the presentation components can be thoroughly tested in isolation and with automation. This is important because it not only facilitates isolated testing, but specifica and appropriate creation as well. It allows developers to develop the functional code, designers to design and construct the front end user interface components, and a intermediary programmer/designer to wire the two layers together without affecting or influencing the creation of either.  Since this design pattern abstracts the structure, behavior, and functional components from one another without a blending of components as occurs with embedded templates, the removal, replacement, or modification of one component does not adversely or greatly affect the others. If a backend is replaced with a different backend, it does not require a new user interface to be rewritten. If a new JavaScript libraries is chosen or replaced with a competitive technology (Flash, SilverLight, etc.) it does not require a modification of any other element. Finally, the changes in the HTML structure only need to be known and, if necessary, handled by the layer that interacts with it directly, so replacing it is as easy as the other two.</p>
+<p><strong>Implementation Variations</strong> As identified in the Ken Collins article, there is one variation of this pattern that requires the service layer to respond to requests with either an error explanation or a success, which in his case was a &#8220;200 OK&#8221; HTTP response. Another, more verbose implementation variation leaves the response content open to the API definition, since there are possible actions or calls that might change the state or attributes of an object beyond the appropriate knowledge of a behavior/requestor. The latter of these variations is recommended by the author.</p>
+<p><strong>Advanced Implementation Details</strong> Advanced details of this pattern can be applied iteratively over time and need not be implemented or provided all at once. These details are not necessary for all implementations, but are provided here for use in certain cases.</p>
+<ul>
+<li>The AJAX requests can be sent over multiple sub-domain names providing multiplexed requests for data. This provides substantial improvements in performance since the requests will be parallelized in the request, response, and rendering process.</li>
+<li>Since all initiating components of the interaction sequence are statically defined and hold no sensitive data, they can be delivered not just by the server, but through a Content Distribution Network (CDN) for fast, highly distributed, and localized provision of the components.</li>
+</ul>
+<h3>When to Use It</h3>
+<p>This design pattern can be used for any web application, even those requiring authentication or privileged access because the static HTML pages, which are publicly available, provide no &#8220;domain specific&#8221; data, only structure and style. All access is controlled and negotiated between the behavior and the controller layers. This pattern works sufficiently well for nearly all web applications and in most circumstances can replace all embedded templates in an application. It can also be intermingled with embedded templates since the pattern does not require complete and holistic application in order to obtain the benefits.</p>
+<h3>Further Reading</h3>
+<p>There is little prior art for this design pattern, though many JavaScript libraries have begun to head in this direction. I recommend reviewing the following libraries/frameworks that assist with the implementation of this design pattern:</p>
+<ul>
+<li><a href="http://beebole.com/blog/2008/10/02/our-javascript-template-pure-becomes-cross-library/">BeeBole Pure</a> - a Fast JavaScript Rendering Library.</li>
+<li><a href="http://github.com/raid-ox/chain.js/wikis">Chain.js</a> - a jQuery library for data binding the elements of a feed to HTML.</li>
+<li><a href="http://github.com/voodootikigod/dissident/tree">Dissident</a> - a framework based in Erlang built from the ground up around the AJAX Head design pattern, this is still under construction by the author.</li>
+</ul>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-02T00:00:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2008</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Chris Williams
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

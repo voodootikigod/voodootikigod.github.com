@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sql | Voodoo Tiki God]]></title>
+  <link href="http://voodootikigod.github.com/blog/categories/sql/atom.xml" rel="self"/>
+  <link href="http://voodootikigod.github.com/"/>
+  <updated>2013-02-16T21:02:57-05:00</updated>
+  <id>http://voodootikigod.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Williams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[NoSQL: A Modest Proposal]]></title>
+    <link href="http://voodootikigod.github.com/nosql-a-modest-proposal/"/>
+    <updated>2009-09-01T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/nosql-a-modest-proposal</id>
+    <content type="html"><![CDATA[<p>The NoSQL movement was coined to describe the variety of revolutionary data storage engines and techniques being aggressively developed to address massive and dynamic data sets. The rise in trending for non-traditional data storage techniques has seen a breadth and depth of variety of new technologies, ideas, and most importantly innovation that solves specific problems as datasets at scale. The largest of web applications have either included or switched to one of the following data storage engines that are capable of working with massive data in an elegant fashion (elegance is defined within terms of the target domain):</p>
+
+
+<ul>
+<li><a href="http://incubator.apache.org/cassandra/">Cassandra</a></li>
+<li><a href="http://code.google.com/p/redis/">Redis</a></li>
+<li><a href="http://couchdb.apache.org/">CouchDB</a></li>
+<li><a href="http://riak.basho.com/">Riak</a></li>
+<li><a href="http://wiki.github.com/cliffmoon/dynomite">Dynomite</a></li>
+<li><a href="http://neo4j.org/">Neo4J</a></li>
+<li><a href="http://mongodb.org/">MongoDB</a></li>
+</ul>
+
+
+<p>There is very little that generally describes these technologies, they each accomplish "data-at-scale" through different techniques (<a href="http://camelcase.blogspot.com/2007/08/cap-theorem.html">CAP Theorem</a>, Collection Oriented, Column Oriented, and Key-Value) and optimize for different workflow processes. One data storage does not rule them all, but they all represent something different from "traditional solutions" like MySQL, PostrgreSQL, DB2, SQL Server, and Oracle. These solutions have dominated the data storage component of applications for many years and in many environments and work great for certain workflows. The problem is that these solutions became a golden hammer for which any data storage problem was a nail and thus SQL became the "only choice" for data solutions. This has been further exacerbated with the consolidation of various SQL implementations by vendors purchasing one another in a constant battle to be the "one" solution as well as a rampant and generally unchecked marketing drive to ensure SQL's continued dominance in the market.</p>
+
+
+<p>It's because of this David versus Goliath battle that the NoSQL movement embraced such a "rebellious" name - it's easier to band together a group of people with mild differences if you can demonize a single opponent or group of opponents. This is typical for many "new concepts", both in technology and otherwise, and has been historically advantageous for a small ragtag group to gain wider favor. Case in point, <a href="http://rubyonrails.org/">Ruby on Rails</a> would have been relegated to the 'Yet Another Framework' category except that it was able to rally against the burning dynamo of Java and Enterprise by demonizing it. In the Rails case, by the leaders implying that everything "enterprisey" or "professional" was evil without consequence or concern led to quite a following until eventually "The Enterprise" became Rails and Rails became "The Enterprise", of course not without abusive language and various less-than-professional presentations. Neither here nor there, this is not about Rails, its about a rebellious movement against what the name "SQL" has stood for and less about the Structured Query Language itself. Hence the name NoSQL became a moniker that simultaneously drew together the disparate tribes of next generation data storage AND identified and demonized the opposition.&nbsp;</p>
+
+
+<p><strong>In The Name of "SQL"</strong></p>
+
+
+<p>Traditional solutions are commonly generalized to their most common element, the <a href="http://en.wikipedia.org/wiki/SQL">Structured Query Langauge</a> (SQL) that is used to query the data. For the most part that is the only common link between the wide variety of "SQL" based data storage engines. One might argue that, and properly so, that common SQL implementations all provide for a method of persisting relationships between data, but the specific means of implementation vary. Case in point, Foreign Keys, the standard means of associating one data element to another, are not common or enforced in all SQL implementations, in fact the <a href="http://dev.mysql.com/doc/refman/5.0/en/myisam-storage-engine.html">MyISAM</a> storage engine in MySQL disregards Foreign Key Constraints entirely. The path of defining a classification of data storage techniques is ill begotten from the start because each database is its own beast, with benefits and downsides that overlap and stand disjoint. The common term of a SQL database, in fact, tells you very little about the database except that you might have some vague intuition of how to query it if you have use any other SQL database, but if you use the data storage in any manner beyond trivial you are forced into niche syntax specific to the engine you are using.&nbsp;</p>
+
+
+<p>I draw this out because most people view the NoSQL movement as a rage against the classification of databases known to be SQL-compliant or the syntax employed to query said databases - it isn't. At least no more so than Rails was raging against the "Enterprise" when few if any of them had really worked in the <a href="http://www.usajobs.gov/">THE ENTERPRISE</a> for any period of time. NoSQL, like Rails, is raging against the dominance of a beast that has for a period of time been unchecked, out of control, and applied in far too many ill appropriate ways. NoSQL is not a&nbsp;revolution against the Structured Query Language any more so than <a href="http://therealadam.com/archive/2009/08/31/its-not-nosql-its-post-relational/">Adam's proffered suggestion of "Post-Relational"</a> is a revolution against the relational model and normalized data forms - that, my friends, would be ludicrous. &nbsp;Especially since various engines the movement either embrace the SQL syntax, but just as many if not more, deeply embrace the concept of relationships even through the guise of embedding of data. We are not "after relationships", in fact we are finally getting to a point where they are just now being useful at scale. And there is that word again, at scale.</p>
+
+
+<p><strong>What is in a Name?</strong></p>
+
+
+<p>NoSQL will for a time remain to be called NoSQL, either over Twitter or in backrooms filled with beer, coffee, and laptops. Let's be honest here #postrelational is ridiculous especially if you are going to re-tweet it or talk about it in public. The modern era of naming is driven by small, tight, and descriptive terms. Furthermore it fails to accomplish the goals set forth by its inventor of defining the movement in terms of itself, its virtues, and its abilities instead of on the attributes of SQL. Defining the movement as either NoSQL or PostRelational is still a definition in terms of "SQL" and its "failures", further the term "post" implies that SQL is somehow run its course or is over - which is very much not true and will remain so for as far as I care to peer into the future without a DeLorean. The naming of the movement needs to be something both descriptive and meaningful, broadly appealing yet concise, and most important defined in terms of itself.</p>
+
+
+<p><em>While I personally am not a fan of Post-Relational, I greatly applaud Adam for starting the discussion and putting forth an idea.&nbsp;</em></p>
+
+
+<p><strong>My Ever Depreciating American Two Cents</strong></p>
+
+
+<p>We seem to be at a naming impasse with few alternative suggestions and while I do love complaining, I have learned that complaints without plausible solutions is just veiled trolling. I don't roll like that. Here are my suggestions:</p>
+
+
+<p>&nbsp;</p>
+
+
+<ol>
+<li>We get a group to come up with the name of interested parties. This is similar to what was done for the renaming of the ServerJS group to CommonJS, everyone of interest and importance was present, threw in their ideas, group votes, and its done. Print T-Shirts, badges, various little handouts on why we switched names, and its done. Having people write blogs or twitter posts throwing out ideas is like crapping your pants, it just stinks. My main suggestion is that (and with a little self promotion admittedly) we make a point at the upcoming <a href="http://nosqleast.com/2009/">NoSQL East conference</a> to plan a discussion on renaming the movement. Either be there in person or be there on IRC, which ever serves you best. We take an hour spit board ideas and make a decision as a movement and rally behind it. Hurt feelings are left at the door.</li>
+<li>We would be remiss as a body of intellectuals to exclude or preclude the revolutionary and transformative changes occurring around us in the "messaging" space with RestMS, AMQP, and the others. These, and the current NoSQL movement, seek a common goal: Better widely available technology for high scale with limited or predictable infrastructure requirements. Its all about data. Where NoSQL is dealing with storage or querying, messaging deals with movement and action. ITS JUST DATA. Joining the movements would not be a bad idea as they are conceptually supportive of one another.</li>
+<li>The name should be something refreshing, expressive, and concise. Might sound a little marketing like, but here are my suggestions to get the ideas going:&nbsp;   
+<ul>
+<li>CloudData&nbsp;</li>
+<li>WebScale&nbsp;</li>
+<li>Big Data&nbsp;</li>
+<li>NoORACLE Movement (purely a joke, but possibly)</li>
+</ul>
+</li>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: beer | Voodoo Tiki God]]></title>
+  <link href="http://voodootikigod.github.com/blog/categories/beer/atom.xml" rel="self"/>
+  <link href="http://voodootikigod.github.com/"/>
+  <updated>2013-02-16T21:02:57-05:00</updated>
+  <id>http://voodootikigod.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Williams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dogfish Head Alehouse Chantilly ]]></title>
+    <link href="http://voodootikigod.github.com/dogfish-head-alehouse-chantilly/"/>
+    <updated>2009-08-29T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/dogfish-head-alehouse-chantilly</id>
+    <content type="html"><![CDATA[<p>[[posterous-content:ptbhpDDFeamndaqqBbvE]]</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Weeping radish brewery]]></title>
+    <link href="http://voodootikigod.github.com/weeping-radish-brewery/"/>
+    <updated>2009-08-22T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/weeping-radish-brewery</id>
+    <content type="html"><![CDATA[<p>[[posterous-content:lfDjeCunDwFpEtwucfrd]]</p>
+
+]]></content>
+  </entry>
+  
+</feed>

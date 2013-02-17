@@ -1,0 +1,251 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Voodoo Tiki God</title>
+	<meta name="author" content="Chris Williams">
+
+	
+	<meta name="description" content="On twitter I posted the following tweet:
+Quote me on this &#8220;Erlang will replace Java in the next 2 years as the standard for Enterprise &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Voodoo Tiki God" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Voodoo Tiki God</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:voodootikigod.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/103300350874263468636?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/voodootikigod" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/voodootikigod" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:voodootikigod.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/pompous-statement/">
+		
+			Pompous Statement</a>
+	</h2>
+	<div class="entry-content">
+		On twitter I posted the following <a href="http://twitter.com/voodootikigod/statuses/912054599">tweet</a>:
+<blockquote class="posterous_short_quote">Quote me on this &#8220;Erlang will replace Java in the next 2 years as the standard for Enterprise Applications.&#8221;</blockquote>
+A fair number of people were either outraged or excited by this statement, but one thing is sure people wanted to know my justification for this statement. I feel that it was deserving of a full blog post rather than a random assembly of 140 character messages.
+
+A little background first, I have built many applications in a wide range of disciplines from <a href="http://www.cryptek.com">Security Policy Management</a> products to <a href="http://www.legalruled.com">project</a> <a href="http://www.patentmint.com">management</a> web applications and have coded in nearly all the &#8220;standard&#8221; set of languages. Programmers and their language selection is little more than a tool for management types to tout, blame, or confuse based on the situation and as such my statement is indeed controversial, especially since most programmers rarely get to pick the tool for the task, let alone the right tool.
+
+I have been on both successful and unsuccessful projects and one thing is true, developers have a short period of time to accomplish something great before managers apply their &#8220;business savvy&#8221; to the mix and it all goes sour. This is why Ruby is seeing such a limelight at this point, because you can quickly get something out before the &#8220;others&#8221; have a chance to fark it up (trying to be PG). So without question, the quickness to a win is the key to success within the development community especially when you have any layer of management. Java, .Net, and even Ruby take a long time to develop an Enterprise solution because they are not designed for the inherent concepts of distributed computing, messaging, and even data persistence. They all farm out some other solution for these problems. If you code in Rails or merb, how often to you fire off a background process to do something that &#8220;needs special care&#8221;? If you code Java or .Net how many times are you dealing with an ORM because you need an enterprise database (SQL Server, Oracle, DB2)? Most of the time in Enterprise development is spent tricking the language into being enterprisy and globbing on often times incompatible technologies (relational != object) just because &#8220;it has to be that way&#8221;. When you break down <a href="http://en.wikipedia.org/wiki/Enterprise_software">Enterprise development</a>, the key factors to it are:
+<ul>
+	<li>High Availability</li>
+	<li>High Performance</li>
+	<li>High Scalability</li>
+	<li>Robustness of operation</li>
+	<li>Perform a business function</li>
+</ul>
+<em><strong>Humorous Note</strong> - Check the wikipedia definition through the link and notice the foreboding message about the cost of development and the recommendation not to do it &#8211; awesome.</em>
+
+Java and .Net have been quibbling over the enterprise development stack for <span style="text-decoration: line-through;">years</span> decades and they were highly reliant on two basic assumption - processors in computers would continually get faster and memory would be abundant. Since 2002, individual processors have not improved at any rate to speak of so applications have gotten slower, not faster. It is important to note that due to the way threading and concurrency are handled in both languages, the application will only utilize a single processor, so even if there are eight (8) cores on the server, the &#8220;enterprise&#8221; application will only be using one of them, not exactly high performance. The other assumption about memory has been stifled due to the addressing constraints of a 32bit processor stack and the slow adoption of 64bit operating platforms that could facilitate higher memory utilization. Furthermore since the processors now have multiple cores, the are each assigned portions of the local and RAM cache banks, splitting the available address space reserved for any individual processing unit and reduce the overall available memory space for applications. Put on top of this that every enterprise application not only requires memory for itself but for an application container (tomcat, JBOSS, IIS, mongrel) and memory quickly becomes a contrained resource, despite its &#8220;commodization&#8221;.
+
+So what is a programmer to do? Well if you follow the trends, you are probably hearing good things about &#8221;<a href="http://en.wikipedia.org/wiki/Cloud_computing">cloud computing</a>&#8221; and the glorious abstractions that it provides you in order to work across an array of cheap computers that most times you never even see using some form of virtualization. This doesn&#8217;t solve the problem it just pushes the maintenance task to someone else and to be honest its a band-aid on the real problems. Cloud computing will not work in the long term because the systems inherently carry the problems with them because they are not addressed, they are &#8220;virtualized&#8221;. Yes the cost of setting up and tearing down an infrastructure is reduced, but to what gain? Are we programming better systems because of it? Are we producing faster, more efficient results? The answer is a dismal no. You are just adding an increased level of complexity that you do not have to understand in order to use and you are setting yourself up for a storm.
+
+<strong><em>Note: </em></strong><em>In case its not obvious I do not recommend cloud computing solutions for a variety of reasons, not the least of which is the problematic security issues that never get resolved within the &#8220;cloud&#8221; where your information is available for anyone &#8211; umm yea, can you say honeypot?</em>
+
+So back to me being a pompous statement maker. In the next two years, you are going to see those &#8220;managers&#8221; start asking why these solutions are working, looking for the next buzzword. I say fark them. Developers need to make this next big change, it needs to be for the right reasons. We need to move to something like Erlang which uses a database, in Erlang, and a message queue, in Erlang, and a webserver, in Erlang, so we aren&#8217;t constantly looking for people to hire with an alphabet soup of qualifications. Enterprise software does not have to be complex. I repeat, <strong>enterprise software does not have to be complex</strong> it just requires doing it right. Going full circle on how to sell this to your organization is simple - make big wins fast. Erlang, Haskell, Clojure, and Lisp all allow you to do that, it just takes you being at least semi-knowledge about it. You can build a fully-distributed, blazing fast, fault tolerant processing engine that can be hot-updated in the field in an evening, that sure as hell beats a blog in ten (10) minutes in my book. This shift will allow software developers to finally utilize and maybe catch up to the advancements that hardware developers have been making. It will allow us to leverage computers in a way that we could never have imagined before due to remedial constraints from failed assumptions. Look you don&#8217;t have to believe me, Kevin Smith posted in his <a href="http://weblog.hypotheticalabs.com/?p=293">blog</a> that &#8220;Erlang reminds me of Ruby during its early days&#8221; and then goes on to reference several <strong>enormous </strong>projects using Erlang with great success. Erlang has arguably already penetrated the enterprise and those companies using it have resoundingly had success with the language.
+
+As for my statement, time will tell, but I am going to my darndest to make it happen.
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-09T00:00:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/how-to-learn-erlang-or-any-functional-program/">
+		
+			How to Learn Erlang (or Any Functional Programming Language)</a>
+	</h2>
+	<div class="entry-content">
+		If you are looking at learning <a href="http://www.erlang.org">Erlang</a>, or any functional programming language, I recommend the following key things to remember and do, ideally in this order:
+<ol>
+	<li>Find someone just as crazy as you (with respect to wanting to learn Erlang) and establish with them a day of the week that you are going to meet up and hack Erlang together. This does not have to be just one person, but it has to be more than yourself. The reason for this is that Erlang is complex and designed less for developer happiness, like Ruby, and more for the science and math involved. In this sense most of the current documentation (though it is changing) reads less like a <a href="http://books.google.com/books?id=xyO-KLexVnMC&amp;dq=little+schemer&amp;pg=PP1&amp;ots=GIDGAO3RPr&amp;sig=DaSiZX_G8IWjP3xtSxgzfuIXTh8&amp;hl=en&amp;sa=X&amp;oi=book_result&amp;resnum=1&amp;ct=result">wild ride</a> through <a href="http://poignantguide.net/">happy land</a> and more like a <a href="http://www.pragprog.com/titles/jaerlang">school textbook gone wrong</a>. The concepts are complex and dive deep quickly, so if you try to learn by yourself you are more than likely going to succumb to the &#8220;ah crap, I don&#8217;t get it&#8221; syndrome and not get to the beautiful code that you were promised you would find. Note: while it may seem like a great idea to &#8220;fast track&#8221; your learning by partnering with an expert, I do not recommend this. Once someone hits the functional programming nirvana/epiphany, they are henceforth changed and cannot talk of how they got there. I recommend not fast tracking your learning, do it at your level and pace otherwise your brain might explode and I doubt anyone would want that.</li>
+	<li><strong>FORGET ALL YOU LEARNED WITH OBJECT ORIENTED PROGRAMMING</strong> - This one is the hardest to do, so I might add a colloquy to the previous item that you should find someone who compliments your knowledge of OOP (he knows it, you don&#8217;t or vice versa) and help each other. The Object Oriented paradigm is not conducive and most times destructive to learning and understanding any functional programming language. Consider it as a fork in the road after the rise of <a href="http://en.wikipedia.org/wiki/Imperative_programming">imperative languages</a> and OOP had a better marketing team, which is why most of the commercial world uses Java and most universities use Haskell, Erlang, or Lisp.</li>
+	<li>A lot of people complain about the Erlang&#8217;s syntax when they first start using it &#8211; deal with it. It is complicated and seemingly convoluted, but the more you write it the more natural it becomes. It will take a while for any of it to make sense, but that&#8217;s because you are learning so much all at once (functional programming concepts, concurrency, a new syntax, coding without an IDE [gasp]). Its OK to be out of your comfort zone, its part of the experience. In part having the funky syntax is helpful because you are not continually trying to &#8220;mental map&#8221; one concept to a known one, which without fail will result in problems. The syntax is like sushi, first time you saw it you thought &#8220;ugh, dead fish&#8221;, now you think &#8220;yuuuummmm, dinner&#8221; (experiences may vary, please use food that most applies to your situation).</li>
+	<li>Do not be afraid to ask questions. Remember the last time you learned a whole new programming paradigm? Yea I would guess its either burned into your memory as a horrible time or it never happened. The jump to functional programs and their &#8220;math-style variables&#8221; is a complex learning process. I recommend using any and all available channels to ask questions (IRC, Twitter, IM, Email), but DO NOT EVER ask to be taught. Come with a specific &#8220;What the hell is going on here&#8221; question and work through the problem with the person, do not ask questions like &#8220;I don&#8217;t understand Erlang&#8217;s message passing&#8221; or &#8220;What is up with the bang(!) symbol?&#8221;, use the book. This is not by any means Erlang specific, if you want to make friends not enemies in your new language du jour, do all you can on your own before you ask (RTFM comes to mind). Admittedly some people are not book readers and some books are not that helpful to read, luckily the Erlang and <a href="http://clojure.blip.tv/">Clojure</a> groups have an increasing amount of <a href="http://video.google.com/videoplay?docid=-5830318882717959520">multi</a> <a href="http://www.pragprog.com/screencasts/v-kserl/erlang-in-practice">media</a> presentations that facilitate more audial or <a href="http://pragmaticstudio.com/erlang">haptic</a> learning. Which brings me to</li>
+	<li>Using the book for Erlang is not as easy as it might seem. The <a href="http://www.amazon.com/Programming-Erlang-Software-Concurrent-World/dp/193435600X/ref=pd_bbs_sr_1?ie=UTF8&amp;s=books&amp;qid=1220914089&amp;sr=8-1">currently available book</a> reads less like a standard sequential learning process and more like an Erlang program. Parts reference other parts all over almost to the point where you have to read all the chapters in parallel to comprehend the subject matter. This isn&#8217;t a knock on the book, its a very good book with a lot of content, its just not very fluid in its conveyance for your standard object oriented programmer. If you can afford it, I recommend getting the often over looked (and rather expensive &#8211; last I checked its $229USD used) <a href="http://www.amazon.com/Concurrent-Programming-Erlang-Joe-Armstrong/dp/0132857928/ref=sr_1_11?ie=UTF8&amp;s=books&amp;qid=1220914089&amp;sr=8-11">textbook from 1992</a>, its chockful of goodness. Think of the book as a guide to the basics and then once you get over the aforementioned syntax spike, switch over to the videos that are out - they are awesome (Great Job <a href="http://weblog.hypotheticalabs.com/">Kevin Smith</a>). SHAMELESS_PLUG Also, if you don&#8217;t mind, keep checking here, I am going to post more of our notes from learning Erlang in a group setting at <a href="http://groups.google.com/group/novalanguages">Northern Virginia Languages</a> and so forth.</li>
+</ol>
+Finally, stick with it. Its worth it even if you never ever program an Erlang application in your life, you will be changed when you go back to writing your applications (or at least thankful). The journey is worthwhile.
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-08T00:00:00-04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2008</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/erlang-notes/">
+		
+			Erlang Notes</a>
+	</h2>
+	<div class="entry-content">
+		Through the various groups I am involved with, I have been learning Erlang for a little under three months, admittedly as more of a sideline learning than a full time. While learning about Erlang, I have picked up several notes, tips, and tricks that I have used to rapidly instruct people to at least my level of knowledge about this awesome upcoming language. I am going to write these items down here because people seem to find them useful and who am I to keep them hidden. I am going to try to post everything you need to really get started with Erlang in a fun and exciting manner. This is going to get crazy, so I encourage you to comment and I can try to help out. I am not going to recommend buying some book because to be completely honest all the books out right now do more to confuse than to instruct, which is why we had to get a group of 12 people together just to understand it. If you are looking to learn about Erlang, this is going to be the place &#8211; well unless it sucks, then somewhere else is the place, try <a href="http://spawnlink.com/">here</a>.
+
+<em>P.S.</em> I wish I had the drawing capabilities of <a href="http://whytheluckystiff.net/">why the lucky stiff</a> then maybe I could pen a <a href="http://poignantguide.net/">poignant guide</a>, but alas I have but this simple blog and my notes.
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-06T00:00:00-04:00" pubdate data-updated="true">Sep 6<span>th</span>, 2008</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
+
+<nav id="pagenavi">
+    
+        <a href="/blog/page/8/" class="prev">Prev</a>
+    
+    
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
+</nav></div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Chris Williams
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

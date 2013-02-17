@@ -1,0 +1,149 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>How to learn Erlang (or any functional programming language) - Voodoo Tiki God</title>
+	<meta name="author" content="Chris Williams">
+
+	
+	<meta name="description" content="If you are looking at learning Erlang, or any functional programming language, I recommend the following key things to remember and do, ideally in &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Voodoo Tiki God" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Voodoo Tiki God</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:voodootikigod.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/103300350874263468636?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/voodootikigod" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/voodootikigod" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:voodootikigod.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">How to Learn Erlang (or Any Functional Programming Language)</h2>
+	<div class="entry-content">If you are looking at learning <a href="http://www.erlang.org">Erlang</a>, or any functional programming language, I recommend the following key things to remember and do, ideally in this order:
+<ol>
+	<li>Find someone just as crazy as you (with respect to wanting to learn Erlang) and establish with them a day of the week that you are going to meet up and hack Erlang together. This does not have to be just one person, but it has to be more than yourself. The reason for this is that Erlang is complex and designed less for developer happiness, like Ruby, and more for the science and math involved. In this sense most of the current documentation (though it is changing) reads less like a <a href="http://books.google.com/books?id=xyO-KLexVnMC&amp;dq=little+schemer&amp;pg=PP1&amp;ots=GIDGAO3RPr&amp;sig=DaSiZX_G8IWjP3xtSxgzfuIXTh8&amp;hl=en&amp;sa=X&amp;oi=book_result&amp;resnum=1&amp;ct=result">wild ride</a> through <a href="http://poignantguide.net/">happy land</a> and more like a <a href="http://www.pragprog.com/titles/jaerlang">school textbook gone wrong</a>. The concepts are complex and dive deep quickly, so if you try to learn by yourself you are more than likely going to succumb to the &#8220;ah crap, I don&#8217;t get it&#8221; syndrome and not get to the beautiful code that you were promised you would find. Note: while it may seem like a great idea to &#8220;fast track&#8221; your learning by partnering with an expert, I do not recommend this. Once someone hits the functional programming nirvana/epiphany, they are henceforth changed and cannot talk of how they got there. I recommend not fast tracking your learning, do it at your level and pace otherwise your brain might explode and I doubt anyone would want that.</li>
+	<li><strong>FORGET ALL YOU LEARNED WITH OBJECT ORIENTED PROGRAMMING</strong> - This one is the hardest to do, so I might add a colloquy to the previous item that you should find someone who compliments your knowledge of OOP (he knows it, you don&#8217;t or vice versa) and help each other. The Object Oriented paradigm is not conducive and most times destructive to learning and understanding any functional programming language. Consider it as a fork in the road after the rise of <a href="http://en.wikipedia.org/wiki/Imperative_programming">imperative languages</a> and OOP had a better marketing team, which is why most of the commercial world uses Java and most universities use Haskell, Erlang, or Lisp.</li>
+	<li>A lot of people complain about the Erlang&#8217;s syntax when they first start using it &#8211; deal with it. It is complicated and seemingly convoluted, but the more you write it the more natural it becomes. It will take a while for any of it to make sense, but that&#8217;s because you are learning so much all at once (functional programming concepts, concurrency, a new syntax, coding without an IDE [gasp]). Its OK to be out of your comfort zone, its part of the experience. In part having the funky syntax is helpful because you are not continually trying to &#8220;mental map&#8221; one concept to a known one, which without fail will result in problems. The syntax is like sushi, first time you saw it you thought &#8220;ugh, dead fish&#8221;, now you think &#8220;yuuuummmm, dinner&#8221; (experiences may vary, please use food that most applies to your situation).</li>
+	<li>Do not be afraid to ask questions. Remember the last time you learned a whole new programming paradigm? Yea I would guess its either burned into your memory as a horrible time or it never happened. The jump to functional programs and their &#8220;math-style variables&#8221; is a complex learning process. I recommend using any and all available channels to ask questions (IRC, Twitter, IM, Email), but DO NOT EVER ask to be taught. Come with a specific &#8220;What the hell is going on here&#8221; question and work through the problem with the person, do not ask questions like &#8220;I don&#8217;t understand Erlang&#8217;s message passing&#8221; or &#8220;What is up with the bang(!) symbol?&#8221;, use the book. This is not by any means Erlang specific, if you want to make friends not enemies in your new language du jour, do all you can on your own before you ask (RTFM comes to mind). Admittedly some people are not book readers and some books are not that helpful to read, luckily the Erlang and <a href="http://clojure.blip.tv/">Clojure</a> groups have an increasing amount of <a href="http://video.google.com/videoplay?docid=-5830318882717959520">multi</a> <a href="http://www.pragprog.com/screencasts/v-kserl/erlang-in-practice">media</a> presentations that facilitate more audial or <a href="http://pragmaticstudio.com/erlang">haptic</a> learning. Which brings me to</li>
+	<li>Using the book for Erlang is not as easy as it might seem. The <a href="http://www.amazon.com/Programming-Erlang-Software-Concurrent-World/dp/193435600X/ref=pd_bbs_sr_1?ie=UTF8&amp;s=books&amp;qid=1220914089&amp;sr=8-1">currently available book</a> reads less like a standard sequential learning process and more like an Erlang program. Parts reference other parts all over almost to the point where you have to read all the chapters in parallel to comprehend the subject matter. This isn&#8217;t a knock on the book, its a very good book with a lot of content, its just not very fluid in its conveyance for your standard object oriented programmer. If you can afford it, I recommend getting the often over looked (and rather expensive &#8211; last I checked its $229USD used) <a href="http://www.amazon.com/Concurrent-Programming-Erlang-Joe-Armstrong/dp/0132857928/ref=sr_1_11?ie=UTF8&amp;s=books&amp;qid=1220914089&amp;sr=8-11">textbook from 1992</a>, its chockful of goodness. Think of the book as a guide to the basics and then once you get over the aforementioned syntax spike, switch over to the videos that are out - they are awesome (Great Job <a href="http://weblog.hypotheticalabs.com/">Kevin Smith</a>). SHAMELESS_PLUG Also, if you don&#8217;t mind, keep checking here, I am going to post more of our notes from learning Erlang in a group setting at <a href="http://groups.google.com/group/novalanguages">Northern Virginia Languages</a> and so forth.</li>
+</ol>
+Finally, stick with it. Its worth it even if you never ever program an Erlang application in your life, you will be changed when you go back to writing your applications (or at least thankful). The journey is worthwhile.
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-08T00:00:00-04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2008</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Chris Williams
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

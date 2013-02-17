@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jsconf | Voodoo Tiki God]]></title>
+  <link href="http://voodootikigod.github.com/blog/categories/jsconf/atom.xml" rel="self"/>
+  <link href="http://voodootikigod.github.com/"/>
+  <updated>2013-02-16T21:02:57-05:00</updated>
+  <id>http://voodootikigod.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Williams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Regional JS Speaker Directory]]></title>
+    <link href="http://voodootikigod.github.com/the-regional-js-speaker-directory/"/>
+    <updated>2012-02-23T00:00:00-05:00</updated>
+    <id>http://voodootikigod.github.com/the-regional-js-speaker-directory</id>
+    <content type="html"><![CDATA[<p>As being the curator of JSConf, I see a lot of new names and exciting topics during the Call For Speakers process, but unfortunately we only have 20-24 slots available for speakers. If I could I would have everyone speak all the time! Luckily there are hundreds of JS meetup groups happening all across the USA and thousands across the world - it is an exciting time. We, the JSConf team, wanted to make a way to help these JS meetup groups connect with the people that register for the Call for Speakers of JSConf (US|EU|..) that might even live or work right next door to them.</p>
+
+
+<p>And so the <a href="https://docs.google.com/spreadsheet/viewform?formkey=dGN0MEVOMUVVRVVtT2lOR1kwdTJJblE6MQ">Regional JS Speaker Directory</a> was born.</p>
+
+
+<p>Initially this is targeting local JS meetup groups, but could very easily be used to help curate amazing local content for various <a href="http://2011.texasjavascript.com/">regional</a> <a href="http://capitoljs.com/">JS</a> <a href="http://reddirtjs.com/">conferences</a>. For now, we are just gathering details about speakers, but we will be curating that list and providing them to regionally based meetup organizers as part of JSConf US 2012. This will hopefully get people talking with one another and allowing all these amazing talks happen across the USA and eventually the world. This is a pretty exciting initiative for us and for the JS community so anything you can do to help us would be greatly appreciated. At the very least, be sure to&nbsp;<a href="https://docs.google.com/spreadsheet/viewform?formkey=dGN0MEVOMUVVRVVtT2lOR1kwdTJJblE6MQ">sign yourself up</a>!</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript: The Great Part]]></title>
+    <link href="http://voodootikigod.github.com/javascript-the-great-part/"/>
+    <updated>2009-04-28T00:00:00-04:00</updated>
+    <id>http://voodootikigod.github.com/javascript-the-great-part</id>
+    <content type="html"><![CDATA[<p>Laura and I just wrapped up JSConf 2009, which <a href="http://search.twitter.com/search?q=jsconf" title="Twitter Search: JSConf">evidently</a> <a href="http://www.michaelharrison.ws/weblog/?p=132">went</a> <a href="http://www.blueskyonmars.com/2009/04/27/jsconf-2009-the-best-conference-you-couldnt-attend/">over</a> <a href="http://www.subprint.com/blog/jsconf-2009-day-one/">very</a> <a href="http://www.subprint.com/blog/jsconf-2009-&amp;mdash;-day-two/">well</a>. We couldn't be more happy with the way the conference went; the attendees, the speakers, the excitement, and the energy - it was the best conference we have ever been to, even though we spent most of the time running around. There was a lot of time and preparation that went into JSConf 2009 to ensure that each detail, each idea was carefully tailored to the community. For those of you that attended and those that were unable to, we will be posting the videos over the coming months - every presentation was amazing so be sure to check out all of them.</p>
+
+
+<p>On to the focus of this post - the JavaScript community has long since taken a side saddle or back seat to other less capable and less prevalent languages. The presentations drew out the amazing genius and talent that happily and quietly thrives in the community. If you just look at the Track A sessions (listed on the <a href="http://www.jsconf2009.com/speakers.html">web site</a>) you will see that JavaScript spreads across mobile, data, desktop, testing, and its old familiar, the web. But its more than that, what you don't see on the web site (yet) is the wonderful Track B and Hacker Lounge items that happened during JSConf 2009. The presentations in Track B were easily all on par with Track A and covered an even wider range of topics from typography to programmatic music generation to server side JavaScript.</p>
+
+
+<p>That all said, the most amazing part of the conference was not the presentations. At this conference you had some of the smartest people in the programming world talking about a language that is unfortunately thought of as a necessary evil. Everyone was jovial, welcoming, friendly, and communal it was truly a community. There was no dominant "rockstar" that parade around overly proud of themselves, despite the amazing things that every individual in attendance has (and will further) accomplish. That is the greatest part of the JavaScript community - it is truly a thriving community flush with talented people. This doesn't just include &nbsp;the speakers and attendees. The sponsors of JSConf - <a href="http://www.rga.com">R/GA</a>, <a href="http://www.mozilla.org">Mozilla</a>, <a href="http://www.joyent.com">Joyent</a>/<a href="http://www.sun.com">Sun</a>, and <a href="http://www.yahoo.com">Yahoo!</a> - were amazingly willing to turn down the "marketing" and instead embrace and grow the community. Their own spread of capabilities - Digital Agency, Web Company, Platform Providers, Search and Development Networks, respectively - shows the range and impact of JavaScript. The fact that there was 130 of the smartest, most driven, and widest ranging people and companies present at JSConf 2009 and each person you met was incredibly humble and friendly - that is how I know that this is the community I want to be a part of.</p>
+
+
+<p>This was the first conference that actually turned and focused in on JavaScript, the programming language, so this was a unique experience and that may have a hand in the humility of all - most people in attendance barely knew more than 4 other people in attendance, so we all arrived forced to make new friends. There is something there, though, that makes me proud of this community; instead of shelling up attendees made a concerted effort to meet, greet, and build relationships with one another. This conference was more than just a single event or moment in time - we have started a revolution. We are building a better community because we, JavaScript developers, have the rare capacity to understand that there is more to learn from using many languages and concepts than to arrogantly assume ours is the best and only solution. I am not trying to decry the value, processes, or importance of other language communities, just making a stand that we should continue to grow the JS community with a focus on talent,&nbsp;humility, and&nbsp;cooperation.</p>
+
+
+<p style="text-align: center;">[[posterous-content:qBnjvgeElAjlyymunbpv]]</p>
+
+
+<p>We are JavaScript, we welcome you to join us for the ride!</p>
+
+]]></content>
+  </entry>
+  
+</feed>
