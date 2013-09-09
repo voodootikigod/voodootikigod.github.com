@@ -532,3 +532,7 @@ a, a:link, a:visited {
 article.component ul { margin-top: 0px;}
 
 p.tight { margin-bottom: 4px;}
+
+section h4:first-child {
+  margin-top: 0px;
+}
