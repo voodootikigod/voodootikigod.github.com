@@ -7,6 +7,7 @@ body {
   font-family: source-sans-pro, sans-serif;
   position: relative;
   -webkit-font-smoothing: antialiased;
+
 }
 body.light {
   background: #F4F4F4;
@@ -34,6 +35,7 @@ h1 {
   z-index: 10;
   background: inherit;
   left: 0;
+
   transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   transform: translate3d(0, 0, 0);
@@ -169,7 +171,7 @@ pre {
   width: 100%;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 20px 0px;
+  padding: 20px 20px;
 }
 /* Code */
 #content section.code {
