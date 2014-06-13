@@ -1,3 +1,7 @@
+
+@page { margin: 0; }
+body { margin: 1.6cm; }
+
 #menu {
   display: none;
 }
@@ -13,8 +17,8 @@
 
 body {
   font-size: 11px;
-  padding: 10pt; margin: 10pt;
-  width: 100%;
+  /*padding: 10pt; margin: 10pt;*/
+  /*width: 100%;*/
 }
 
 div.max-width {
